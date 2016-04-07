@@ -6,17 +6,21 @@ html, body {
 
 /*使用border-box盒模型进行计算*/
 * {
-		box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .container {
 	width: 98%;
-	margin: 0 auto;
-	border: 1px red solid;
+	margin: 20px auto;
+	position: relative;
+	max-width: 1200px;
+	min-width:  960px;
 }
 
 .row {
 	width: 100%;
+	position: relative;
+	overflow: hidden;
 }
 
 /*清除浮动*/
@@ -37,7 +41,6 @@ html, body {
 }
 .col-xs-2 {
 	width: 16.666666%;
-	border: 1px solid green;
 }
 .col-xs-3 {
 	width: 24.999999%;
@@ -62,7 +65,6 @@ html, body {
 }
 .col-xs-10 {
 	width: 83.333330%;
-	border: 1px solid red;
 }
 .col-xs-11 {
 	width: 91.666663%;

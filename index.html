@@ -4,17 +4,39 @@
 	<meta charset="UTF-8">
 	<title>calendar</title>
 	<link rel="stylesheet" href="style/grid.css">
-	<script src="js/calendar.js"></script>
+	<link rel="stylesheet" href="style/main.css">
+	<script src="js/calendar-core.js"></script>
+	<script src="js/calendar-tpl.js"></script>
+	<script src="js/calendar-ui.js"></script>
 </head>
 <body>
 	<div class="container">		
 		<div class="row">
-			<div class="col-xs-10">fafaf</div>
-			<div class="col-xs-2">fafaf</div>
+			<div class="col-xs-10">
+				<div class="row menu">
+					<div class="col-xs-2 select">
+						<strong>&lt</strong>
+						<select id="select-year"></select>
+						<strong>&gt</strong>
+					</div>
+					<div class="col-xs-2 select">
+						<strong>&lt</strong>
+						<select id="select-month"></select>
+						<strong>&gt</strong>
+					</div>
+				</div>
+				<div class="row week">week</div>
+			</div>
+			<div class="col-xs-2 sidebar">fafaf</div>
 		</div>
 	</div>
 	<script>
-		console.log(Calendar.getLunarDay(2016, 04, 15));
+		console.log(Calendar.core.getLunarDay(2016, 04, 15));
+		var year = document.getElementById("select-year"),
+			month = document.getElementById("select-month");
+
+		Calendar.ui.createOptions(year, 1901, 2050, "年");
+		Calendar.ui.createOptions(month, 1, 12, "月");
 	</script>
 </body>
 </html>
