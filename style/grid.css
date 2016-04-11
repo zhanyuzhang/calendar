@@ -13,8 +13,8 @@ html, body {
 	width: 98%;
 	margin: 20px auto;
 	position: relative;
-	max-width: 1200px;
-	min-width:  960px;
+	max-width: 960px;
+	min-width:  320px;
 }
 
 .row {
@@ -71,6 +71,11 @@ html, body {
 }
 .col-xs-12 {
 	width: 100%;
+}
+
+/*这里是七等分的*/
+.col-xs-one-of-seven {
+	width: 14.285714%;
 }
 
 

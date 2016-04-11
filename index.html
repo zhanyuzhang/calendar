@@ -2,41 +2,37 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
 	<title>calendar</title>
 	<link rel="stylesheet" href="style/grid.css">
 	<link rel="stylesheet" href="style/main.css">
 	<script src="js/calendar-core.js"></script>
 	<script src="js/calendar-tpl.js"></script>
 	<script src="js/calendar-ui.js"></script>
+	<script src="js/calendar-controller.js"></script>
 </head>
 <body>
 	<div class="container">		
 		<div class="row">
-			<div class="col-xs-10">
+			<div class="col-xs-12">
 				<div class="row menu">
-					<div class="col-xs-2 select">
+
 						<strong>&lt;</strong>
 						<select id="select-year"></select>
 						<strong>&gt;</strong>
-					</div>
-					<div class="col-xs-2 select">
+
 						<strong>&lt;</strong>
 						<select id="select-month"></select>
 						<strong>&gt;</strong>
-					</div>
+
+					<button id="backToday">返回今天</button>
 				</div>
-				<div class="row week">week</div>
+				<div class="row week" id="week">
+					<!-- 这里生成日历表 -->
+				</div>
 			</div>
-			<div class="col-xs-2 sidebar">fafaf</div>
+			<!-- <div class="col-xs-2 sidebar">sidebar</div> -->
 		</div>
 	</div>
-	<script>
-		console.log(Calendar.core.getLunarDay(2016, 04, 15));
-		var year = document.getElementById("select-year"),
-			month = document.getElementById("select-month");
-
-		Calendar.ui.createOptions(year, 1901, 2050, "年");
-		Calendar.ui.createOptions(month, 1, 12, "月");
-	</script>
 </body>
 </html>

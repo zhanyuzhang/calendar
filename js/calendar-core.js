@@ -279,7 +279,30 @@
 	Calendar.core.getLunarDay = function(year, month, day) { 
 		var sDObj = new Date(year, month-1, day); // 实例化一个Date的实例
 		var lDObj = new Lunar(sDObj)     //通过公历日期对象求出农历日期 
-		return cMonth(lDObj.month + 1) + cDay(lDObj.day); 
+
+		var lunarDate = (cDay(lDObj.day) === "初一") ? 
+						 cMonth(lDObj.month + 1) : cDay(lDObj.day) ;
+		return lunarDate; 
+	};
+
+	//获取某年某月的第一天是星期几
+	Calendar.core.getFirstDayOfMonth = function(year, month) {
+		var keystr = "622503514624",
+			deltdate = 0,
+			deltmonth = parseInt(keystr.substr(month - 1, 1)),
+			deltyear = (year - 2000) + Math.ceil((year - 2000) /4);
+
+		deltyear += (year - Math.floor(year / 4) * 4 == 0 && month > 2 ? 1 : 0);
+		console.log(deltdate + " " + deltmonth + " " + deltyear);
+
+		return (deltmonth + deltyear + deltdate) - Math.floor((deltmonth + deltyear + deltdate) / 7) * 7;
+
+	};
+
+	//判断某年是否为闰年
+	Calendar.core.isLeapYear = function(year) {
+		year = parseInt(year, 10);
+		return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0); 
 	}
 
 

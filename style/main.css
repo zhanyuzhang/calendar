@@ -1,10 +1,10 @@
 .menu {
-	border: 1px solid orange;
 	padding: 5px;
+	background: #ddd;
 }
 
 .week {
-	border: 1px blue solid;
+	
 }
 
 .sidebar {
@@ -15,4 +15,35 @@
 
 .select {
 	cursor: pointer;
+}
+
+#week div[class^="col-xs"] {
+	text-align:  center;
+	height: 100%;
+}
+
+#week .week-header {
+	background: rgb(254, 251, 235);
+	height: 2rem;
+	line-height: 2rem;
+}
+
+#week .week-content {
+	height: 4rem;
+	line-height: 2rem;
+}
+#week .week-content .col-xs-one-of-seven {
+	border: 1px solid #F5FFFA;
+	/*padding: 1px;*/
+}
+#week .week-content .solarDate {
+	font-size: 2rem;
+}
+
+.current-month {
+	background: #abcdef;
+}
+
+.last-month, .next-month {
+	background: #ccc;
 }
