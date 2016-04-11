@@ -280,22 +280,27 @@
 		var sDObj = new Date(year, month-1, day); // 实例化一个Date的实例
 		var lDObj = new Lunar(sDObj)     //通过公历日期对象求出农历日期 
 
-		var lunarDate = (cDay(lDObj.day) === "初一") ? 
-						 cMonth(lDObj.month + 1) : cDay(lDObj.day) ;
+		var lunarDate = {
+			month: cMonth(lDObj.month + 1),
+			date: cDay(lDObj.day)
+		}; 
+
 		return lunarDate; 
 	};
 
 	//获取某年某月的第一天是星期几
 	Calendar.core.getFirstDayOfMonth = function(year, month) {
-		var keystr = "622503514624",
-			deltdate = 0,
-			deltmonth = parseInt(keystr.substr(month - 1, 1)),
-			deltyear = (year - 2000) + Math.ceil((year - 2000) /4);
+		var date = new Date(year, month - 1, 1);
+		return parseInt( date.getDay() );
+		// var keystr = "622503514624",
+		// 	deltdate = 0,
+		// 	deltmonth = parseInt(keystr.substr(month - 1, 1)),
+		// 	deltyear = (year - 2000) + Math.ceil((year - 2000) /4);
 
-		deltyear += (year - Math.floor(year / 4) * 4 == 0 && month > 2 ? 1 : 0);
-		console.log(deltdate + " " + deltmonth + " " + deltyear);
+		// deltyear += (year - Math.floor(year / 4) * 4 == 0 && month > 2 ? 1 : 0);
+		// console.log(deltdate + " " + deltmonth + " " + deltyear);
 
-		return (deltmonth + deltyear + deltdate) - Math.floor((deltmonth + deltyear + deltdate) / 7) * 7;
+		// return (deltmonth + deltyear + deltdate) - Math.floor((deltmonth + deltyear + deltdate) / 7) * 7;
 
 	};
 
@@ -303,8 +308,47 @@
 	Calendar.core.isLeapYear = function(year) {
 		year = parseInt(year, 10);
 		return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0); 
-	}
+	};
 
+	//获取某年某月的节气对应的日期
+	Calendar.core.getDateOfSolarTerm = function(y, m) {
+		//二十四节气名字
+		var	solarTerm = [
+			"小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "谷雨",
+			"立夏", "小满", "芒种", "夏至", "小暑", "大暑", "立秋", "处暑", 
+			"白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至"
+		];
+
+		//这是什么？？
+		var sTermInfo = [
+			0, 21208, 42467, 63836, 85337, 107014, 128867, 150921, 173149,
+			195551, 218072, 240693, 263343, 285989, 308563, 331033, 353350,
+			375494, 397447, 419210, 440795, 462224, 483532, 504758
+		];
+
+		//某月的两个节气的序号
+		var index1 = 2 * m - 2, //某月第一个节气的日期
+			index2 = 2 * m -1;  //某月第二个节气的日期
+
+		 var offDate1 = new Date((31556925974.7 * (y - 1900) + 
+		 			    sTermInfo[index1] * 60000) + Date.UTC(1900, 0, 6, 2, 5));
+		 var offDate2 = new Date((31556925974.7 * (y - 1900) + 
+		 			    sTermInfo[index2] * 60000) + Date.UTC(1900, 0, 6, 2, 5));
+		
+		 //返回一个某月的节气日期和名字
+		 var terms = [
+		 	{
+		 		date:  m + "," + offDate1.getUTCDate(),
+		 		termName: solarTerm[index1]
+		 	},
+		 	{
+		 		date: m + "," + offDate2.getUTCDate(),
+		 		termName: solarTerm[index2]
+		 	}
+		 ];	
+
+   		return(terms);
+	};
 
 	//把Calendar暴露到window全局对象
 	window.Calendar = Calendar; 

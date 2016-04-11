@@ -13,8 +13,14 @@
 	margin-bottom: -1200px;
 }
 
-.select {
-	cursor: pointer;
+.menu {
+	/*font-size: 1.2rem;*/
+	height: 2rem;
+}
+
+.menu  select, .menu button {
+	font-size: 1rem;
+	width: 8rem;
 }
 
 #week div[class^="col-xs"] {
@@ -36,7 +42,7 @@
 	border: 1px solid #F5FFFA;
 	/*padding: 1px;*/
 }
-#week .week-content .solarDate {
+#week .week-content .solar-date {
 	font-size: 2rem;
 }
 
@@ -46,4 +52,12 @@
 
 .last-month, .next-month {
 	background: #ccc;
+}
+
+/*节假日的样式*/
+.solar-festival-date {
+	color: red;
+}
+.term-date {
+	color: green;
 }
