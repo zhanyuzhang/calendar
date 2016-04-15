@@ -1,15 +1,17 @@
-// 这是模板类
-
+// 命名空间Calendar.tpl
+// 主要包含了模板替换的方法
 (function() {
 
 	"use strict";
 
-	// 定义新的命名空间Calendar.tpl
+	// 生成新的命名空间Calendar.tpl
 	Calendar.namespace("Calendar.tpl");
 
-	// 在命名空间Calendar.tpl上面添加新的方法repalce
-	// 它用来模板替换的的，接受两个参数，第一个是需要替换的模板字符串
-	// 第二个是提供替换值的对象
+	// @method replace: 用来进行模板替换
+	// @param {string} tpl: 字符串形式的模板
+	// @param {obj} data: 提供替换数据的对象
+	// @return {string} : 替换后的字符串
+
 	Calendar.tpl.replace = function(tpl, data) {
 
 		var reg = /\{\$[\w]+\}/g, //匹配正则
