@@ -126,7 +126,7 @@ OK,本月的日期已经填充完成了，但是，在1号的前面和30号的�
 #3. 日历的安装及使用
 ###安装：
 在calenar根目录下建一个html文件，然后把build子目录下面的mini-calendar.css和mini-calenar.js引入来，并且在body的底部插入一段js，调用Calendar.calendar.init()进行初始化即可,如下，日历会作为body的整个内容插入，并且会覆盖body之前的所有内容，所以，如果不希望日历占据整个body的话，,可以在body里面添加一个空的元素，在这个空元素里面插入:
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,7 +162,7 @@ IPhone(qq浏览器):
 IPad (Safari):
  <center>![](doc/5.png)</center>
  
-#7. 其他
+#5. 其他
 为了方便使用手机和平板测试，我已经把代码部署到了百度bae，地址是：http://calendar.duapp.com/calendar/
 ，可以使用移动设备访问。
 
