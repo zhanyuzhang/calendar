@@ -271,7 +271,8 @@ IPad (Safari):
  <center>![](doc/5.png)</center>
  
 #7. 其他
-为了方便使用手机和平板测试，我已经把代码部署到了百度bae，地址是：http://calendar.duapp.com/calendar/，可以使用移动设备访问。
+为了方便使用手机和平板测试，我已经把代码部署到了百度bae，地址是：http://calendar.duapp.com/calendar/
+，可以使用移动设备访问。
 
 
 
