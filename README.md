@@ -126,109 +126,109 @@ OK,本月的日期已经填充完成了，但是，在1号的前面和30号的�
 
 #3.	接口规范
 ###Calendar命名空间上的方法：
-@method namespace: 在Calendar对象上生成命名空间
+#####@method namespace: 在Calendar对象上生成命名空间
 @param {string} ns_string: 以点隔开的命名空间字符串
 @param {object} 生成的命名空间对象
 
 ###Calendar.core命名空间上的方法：
-@method getChinaDate: 传入阿拉伯数字形式的农历日获取中文日期名字 
+#####@method getChinaDate: 传入阿拉伯数字形式的农历日获取中文日期名字 
 @param {number} d: 农历日的阿拉伯数字，初一到三十用1-30表示
 @return {string} 得到的农历日期的中文格式
 
-@method getChinaDate: 传入阿拉伯数字形式的农历日获取中文日期名字 
+#####@method getChinaDate: 传入阿拉伯数字形式的农历日获取中文日期名字 
 @param {number} d: 农历日的阿拉伯数字，初一到三十用1-30表示
 @return {string} 得到的农历日中文格式
 
-@method getChinaMonth: 传入阿拉伯数字形式的农历日获取中文日期名字 
+#####@method getChinaMonth: 传入阿拉伯数字形式的农历日获取中文日期名字 
 @param {number} m: 农历日的阿拉伯数字，初一到三十用1-30表示
 @return {string} 得到的农历日中文格式
 
-@method getLunarDay: 通过传入公历的年月日返回农历的信息对象
+#####@method getLunarDay: 通过传入公历的年月日返回农历的信息对象
 @param {number} y: 4位数的公历年，如2014
 @param {number} m: 公历月份，1-12
 @param {number} d: 公历日期，1-30
 @return {obj} d: 返回一个包含农历信息的对象
 
-@method getFirstDayOfMonth: 获取某年某月的第一天是星期几
+#####@method getFirstDayOfMonth: 获取某年某月的第一天是星期几
 @param {number} year: 4位数字的年份
 @param {number} month: 月份1-12
 @return {number} : 0-6，表示周一到周六
 
-@method isLeapYear: 判断某年是否为闰年
+#####@method isLeapYear: 判断某年是否为闰年
 @param {number} year: 4位数字的年份
 @return {boolean} : true or false
 
-@method getDateOfSolarTerm: 获取某年某月的两个节气对应的日期
+#####@method getDateOfSolarTerm: 获取某年某月的两个节气对应的日期
 @param {number} year: 4位数字的年份
 @param {number} month: 月份1-12
 @return {array} : 长度为2的数组，存放该月的两个节气的信息
 
-@method getSolarFestival: 获取所有公历日期的节日，每年一样的，不用参数
+#####@method getSolarFestival: 获取所有公历日期的节日，每年一样的，不用参数
 @return {array} : 返回节日信息数组
 
-@method getLunarFestival: 获取一年中的所有农历节日，每年一样的，不用参数
+#####@method getLunarFestival: 获取一年中的所有农历节日，每年一样的，不用参数
 @return {array} : 返回包含所有农历节日的数组
 
-@method getFirstDayOfMonth: 传入数字获取对应的星期几
+#####@method getFirstDayOfMonth: 传入数字获取对应的星期几
 @param {number} index: 0-41的数字，因为日历表中一共有42个格子
 @return {string} : 中文形式的星期几
 
-@method getAnimal: 传入公历年份，获取对应的生肖
+#####@method getAnimal: 传入公历年份，获取对应的生肖
 @param {number} year: 公历年份
 @return {string} : 中文生肖
 
 ###Calendar.tpl命名空间上的方法
 
-@method replace: 用来进行模板替换
+#####@method replace: 用来进行模板替换
 @param {string} tpl: 字符串形式的模板
 @param {obj} data: 提供替换数据的对象
 @return {string} : 替换后的字符串
 
 ###Calendar.ui命名空间上的方法
 
-@method createFrame: 创建日整体的HTML骨架
+#####@method createFrame: 创建日整体的HTML骨架
 @param {object} parentNode: 父容器
 
-@method createWeekGrid: 创建空白的日历表
+#####@method createWeekGrid: 创建空白的日历表
 @param {object} container: 父容器
 
-@method createOptions: 为select元素生成option子元素
+#####@method createOptions: 为select元素生成option子元素
 @param {object} select: select元素的dom对象
 @param {number} start: 起始值，如月份起始为1
 @param {number} end: 结束值，如月份结束为12
 @param {string} unit: 显示的单位，如月份的为"月"
 
-@method fillDate: 更新日历表，往日历里面填充新的月份的日期
+#####@method fillDate: 更新日历表，往日历里面填充新的月份的日期
 @param {number} year: 4位数字的年份
 @param {number} month: 月份数字，1-12
 
-@method addTermStyle: 为节气日期添加样式
+#####@method addTermStyle: 为节气日期添加样式
 @param {array} 存放当前月份的公历信息的数组
 @param {number} year: 4位数字的年份
 @param {number} month: 月份数字，1-12
 
-@method addSolarFestival: 为公历节日添加样式
+#####@method addSolarFestival: 为公历节日添加样式
 @param {array} solarInfo: 存放当前月份的公历信息的数组
 
-@method addLunarFestival: 农历节日添加样式
+#####@method addLunarFestival: 农历节日添加样式
 @param {array} lunarInfo: 存放当前月份的农历信息的数组
 
-@method addWeekFestival: 添加母亲节，父亲节，感恩节
+#####@method addWeekFestival: 添加母亲节，父亲节，感恩节
 @param {array} solarInfo: 存放当前月份的农历信息的数组
 
-@method setToday: 高亮显示今天
+#####@method setToday: 高亮显示今天
 @param {number} year: 4位数字的年份
 @param {number} month: 月份数字，1-12
 @param {array} solarInfo: 存放当前月份的公历信息的数组
 
-@method showDetails: 显示选中的日期的详细信息
+#####@method showDetails: 显示选中的日期的详细信息
 @param {object} dateDom: 选中的日期的dom对象
 @param {number} year: 4位数字的年份
 @param {number} month: 月份数字，1-12
 
 ###Calendar.controller命名空间上的方法
 
-@method init: 日历的初始化方法
+#####@method init: 日历的初始化方法
 @param {object} container: dom对象，动态生成的日历表将会插入到该对象
 
 #4. 日历的安装及使用
