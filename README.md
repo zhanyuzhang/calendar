@@ -1,21 +1,39 @@
+# 项目使用
+### install dependecies
+```
+npm install # or yarn install
+```
+
+### start app
+```
+npm start
+```
+
+### 文件说明
+
+
+### 项目介绍
+
 # 1.目录结构
 ```
 calendar
-	|-build
-		|-mini-calendar.css
-		|-mini-caleadar.js
-	|-css
-		|-grid.css
-		|-main.css
-	|-images
-		|-change.gif
-		|-release.gif
-	|-js
-		|-calendar-controller.js
-		|-calendar-core.js
-		|-calendar-tpl.js
-		|-calendar-ul.js
-	|-index.html
+	|-src(源码目录)
+		|-index.html
+		|-css
+			|-grid.css
+			|-main.css
+		|-js
+			|-calendar-controller.js
+			|-calendar-core.js
+			|-calendar-tpl.js
+			|-calendar-ul.js
+	|-dist(合并JS和CSS之后的输出目录)
+		|-index.html
+		|-css
+			|-index.css
+		|-js
+			|-index.js
+		
 ```
 # 2.设计思路
 
@@ -160,11 +178,6 @@ IPhone(qq浏览器):
 
 IPad (Safari):
 ![](doc/5.png)
- 
-# 5. 其他
-为了方便使用手机和平板测试，我已经把代码部署到了百度bae，地址是：http://calendar.duapp.com/calendar/
-，可以使用移动设备访问。
-
 
 
 

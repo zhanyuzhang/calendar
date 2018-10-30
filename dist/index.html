@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>calendar</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script>
+		// 创建一个全局对象Calendar
+		window.Calendar = {};  
+
+		// @method namespace: 在Calendar对象上生成命名空间
+		// @param {string} ns_string: 以点隔开的命名空间字符串
+		// @param {object} 生成的命名空间对象
+		Calendar.namespace = function(ns_string) {  
+		
+			var parts = ns_string.split("."),
+				parent = Calendar;
+
+			//如果有前缀Calendar，则去掉 
+			if(parts[0] === "Calendar") {
+				parts = parts.slice(1); 
+			}
+
+			for(var i = 0, len = parts.length; i < len; i++) {
+				if(typeof parent[parts[i]] === "undefined") {
+					parent[parts[i]] = {};
+				}
+				parent = parent[parts[i]];
+			}
+
+			return parent;		
+		};
+	</script>
+	<script src="./js/index.js"></script>
+</head> 
+<body>
+	<div id="app"></div>
+	<script>    
+		var container = document.getElementById('app');
+		Calendar.controller.init(container);  
+	</script> 
+</body>
+</html>

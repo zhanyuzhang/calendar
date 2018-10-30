@@ -7,33 +7,6 @@
 
 	"use strict";
 
-	// 创建一个全局对象Calendar
-	//在该文件的末尾处暴露到全局window
-	var Calendar = Calendar || {}; 
-
-	// @method namespace: 在Calendar对象上生成命名空间
-	// @param {string} ns_string: 以点隔开的命名空间字符串
-	// @param {object} 生成的命名空间对象
-	Calendar.namespace = function(ns_string) {
-
-		var parts = ns_string.split("."),
-			parent = Calendar;
-
-		//如果有前缀Calendar，则去掉
-		if(parts[0] === "Calendar") {
-			parts = parts.slice(1); 
-		}
-
-		for(var i = 0, len = parts.length; i < len; i++) {
-			if(typeof parent[parts[i]] === "undefined") {
-				parent[parts[i]] = {};
-			}
-			parent = parent[parts[i]];
-		}
-
-		return parent;		
-	};
-
 	//创建命名空间Calendar.core，日历的核心方法都定义在该命名空间之上
 	Calendar.namespace("Calendar.core");
 
@@ -47,7 +20,7 @@
 		var nStr2 = ['初', '十', '廿', '卅', '　'];
 
 		var s = ""; //存放中文日期
-
+		console.log(d);
 		switch (d) { 
 			case 10: 
 				s = '初十'; break; 
@@ -212,13 +185,13 @@
 			} 
 
 			this.month = i; 
-			this.day = offset + 1;
+			this.day = Math.floor( offset + 1);
 		} 
 
 		 // 实例化一个Date的实例
 		 //通过公历日期对象求出农历日期，并将其返回 
 		var sDObj = new Date(year, month-1, day);
-		var lDObj = new Lunar(sDObj)   
+		var lDObj = new Lunar(sDObj) 
 
 		var lunarDate = {
 			month: Calendar.core.getChinaMonth(lDObj.month + 1),
@@ -356,8 +329,4 @@
 		var animals = ["鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"];
 		return animals[(year - 1900) % 12];
 	}
-
-	//把Calendar暴露到window全局对象
-	window.Calendar = Calendar; 
-
 })(window);

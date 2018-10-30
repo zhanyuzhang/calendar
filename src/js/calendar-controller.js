@@ -1,13 +1,9 @@
 // 命名为Calendar.controller
 // 日历的交互操作以及初始化
 (function() {
-
-	// alert(window.innerWidth);
-
 	"use strict";
-
 	Calendar.namespace("controller");
-
+  
 	// @method init: 初始化方法
 	// @param {object} container: dom对象，动态生成的日历表将会插入到该对象
 	Calendar.controller.init = function(container) {
@@ -167,7 +163,7 @@
 				args[type].value = value + sign;
 			}
 			Calendar.ui.fillDate(parseInt(selectYear.value), parseInt(selectMonth.value));
-		}
+		}  
 
 		// @method goToToday: 返回今天
 		// @param {object} selectYear: 年份选择下拉框的dom对象

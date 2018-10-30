@@ -10,7 +10,7 @@ html, body {
 }
 
 .container {
-	width: 98%;
+	width: 99%;
 	margin: 0px auto;
 	position: relative;
 }
@@ -22,7 +22,7 @@ html, body {
 }
 
 /*清除浮动*/
-.row:after {
+.row:after { 
 	content: "";
 	display: table;
 	clear: both;
