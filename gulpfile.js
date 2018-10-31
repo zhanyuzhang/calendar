@@ -9,6 +9,7 @@ gulp.task('connect', function() {
   });
 });
 
+
 gulp.task('html', function () {
   gulp.src('./src/*.html')
     .pipe(connect.reload());
