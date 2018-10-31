@@ -13,12 +13,12 @@ npm start
 启动项目之后，在src里面所做的修改会自动同步到dist目录的
 
 ### 在各种主流浏览器的下的浏览效果
-* 桌面浏览器： 
+桌面浏览器： 
 Chrome(v48):
 
 ![](doc/chrome-browser.png)
  
-* 移动设备：
+移动设备：
 IPhone(qq浏览器):
 
 ![](doc/qq-browser.png)
