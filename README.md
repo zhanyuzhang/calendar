@@ -19,11 +19,11 @@ Chrome(v48):
 ![](doc/chrome-browser.png)
  
 移动设备：
-IPhone(qq浏览器):
+iPhone(qq浏览器):
 
 ![](doc/qq-browser.png)
 
-IPad (Safari):
+iPad (Safari):
 
 ![](doc/safari-browser.png)
 
